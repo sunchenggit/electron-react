@@ -9,7 +9,7 @@ function Router() {
     <Routes>
       <Route path={ROUTER.root} element={<Root />} />
       <Route path={ROUTER.resume} element={<Resume />} />
-      <Route path={ROUTER.root} element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }

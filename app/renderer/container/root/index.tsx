@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.less';
 import Logo from '@assets/logo.png';
 import { useNavigate } from 'react-router';
 import { shell } from 'electron';
 import { ROUTER_KEY, ROUTER_ENTRY } from '@common/contants/router';
 import { isHttpOrHttps } from '@common/utils/router';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Root() {
   const navigate = useNavigate();
@@ -16,6 +17,26 @@ function Root() {
       navigate('/resume');
     }
   };
+  const dispatch = useDispatch();
+  const appName = useSelector((state: any) => state.globalModel.appName);
+  useEffect(() => {
+    setTimeout(() => {
+      console.log('3s 后修改...');
+      dispatch({
+        type: 'globalModel/setStore',
+        payload: {
+          key: 'appName',
+          values: 'visResumeMook',
+        },
+      });
+    }, 3000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    console.log('appName = ', appName);
+  }, [appName]);
+
   return (
     <div styleName="root">
       <div styleName="container">

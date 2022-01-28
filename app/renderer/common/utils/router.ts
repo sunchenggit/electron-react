@@ -1,4 +1,4 @@
-export function isHttpOrHttps(url: string):boolean {
+export function isHttpOrHttps(url: string): boolean {
   let regRule = /(http|https):\/\/([\w.]+\/?)\S*/;
   return regRule.test(url.toLowerCase());
 }
