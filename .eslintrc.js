@@ -38,5 +38,11 @@ module.exports = {
     '@typescript-eslint/no-invalid-this': 'off',
     'react/jsx-key': 0,
     'no-undef': 0,
+    '@typescript-eslint/no-inferrable-types': [
+      2,
+      {
+        ignoreParameters: true,
+      },
+    ],
   },
 };
