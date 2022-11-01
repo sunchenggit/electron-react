@@ -5,6 +5,7 @@ import { shell } from 'electron';
 import { useHistory } from 'react-router';
 import { ROUTER_ENTRY, ROUTER_KEY } from '@common/constants/router';
 import { isHttpOrHttpsUrl } from '@common/utils/router';
+import fileAction from '@common/utils/file';
 
 function Root() {
   const history = useHistory();
@@ -15,6 +16,7 @@ function Root() {
       history.push(router.url);
     }
   };
+  fileAction.read('./index.tsx').then((res) => console.log(res));
   return (
     <div styleName="root">
       <div styleName="container">
